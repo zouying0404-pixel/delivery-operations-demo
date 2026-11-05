@@ -31,3 +31,9 @@ Then visit `http://localhost:8000`.
 4. GitHub will show the website address after deployment, usually `https://YOUR-USERNAME.github.io/REPOSITORY-NAME/`.
 
 No build command, package installation or secret is needed. Relative asset paths support GitHub Pages project sites. The optional Google Fonts stylesheet has system-font fallbacks.
+
+## Metric Pool update
+
+The editor includes 40 numeric metrics and 13 charts, searchable by type; Core and multiple named sections support drag selection, reordering, moving, removal, and clearing. Confirm saves the layout locally; Cancel discards draft edits. Target, hourly ATA, real-time ATA, and Safety Margin remain fixed in Core.
+
+AI Custom Metric recreates the definition, optional Mild/Moderate/Severe thresholds, preview, and add-to-pool workflow. This standalone version uses a local preview generator, not a connected AI service. Arithmetic formulas using built-in metric names and + - * / parentheses calculate against synthetic values; natural-language definitions are retained with simulated values. Custom metrics and section settings persist in this browser.
