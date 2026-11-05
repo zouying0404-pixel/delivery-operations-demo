@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Delivery Operations Dashboard · Demo</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><span class="brand-icon">⌁</span><div><h1>Delivery Operations Dashboard</h1><p>Monitor performance. Take action.</p></div></div>
+    <span class="demo-badge"><span></span> Interactive demo · Simulated data</span>
+  </header>
+  <div class="filters">
+    <label>City dimension <span class="required">*</span><select id="city" aria-label="City"><option>São Paulo</option><option>Rio de Janeiro</option><option>Belo Horizonte</option></select></label>
+    <label>Delivery Area<select id="area" aria-label="Delivery Area"></select></label>
+    <button id="target-edit" class="btn">⚙ Edit target</button>
+    <div class="filter-end"><span id="updated">Auto-refreshes every 1 min</span><button id="refresh" class="btn dark">↻ Refresh</button></div>
+  </div>
+  <main>
+    <section class="panel" id="metrics-panel">
+      <div class="section-heading"><h2><span class="section-icon">▦</span> Metrics</h2><div><button class="icon-btn collapse" data-panel="metrics-panel" aria-label="Collapse metrics">⌃</button><button class="icon-btn fullscreen" data-panel="metrics-panel" aria-label="Fullscreen metrics">⛶</button></div></div>
+      <div class="panel-body">
+        <div class="toolbar"><div class="tabs"><button class="tab active" data-metrics-tab="core">Core Metrics</button><button class="tab" data-metrics-tab="monitor">Monitoring Section</button></div><div class="toolbar-actions"><div class="segmented"><button class="active" data-view="card">▦ Card</button><button data-view="table">☷ Table</button></div><button id="edit-metrics" class="btn dark">☷ Edit metrics</button><button id="export-metrics" class="icon-btn" aria-label="Export metrics" title="Export metrics">⇩</button></div></div>
+        <div id="metrics-content"></div>
+      </div>
+    </section>
+    <section class="panel" id="merchant-panel">
+      <div class="section-heading"><h2><span class="section-icon">▤</span> Merchant Analysis</h2><div><button class="icon-btn collapse" data-panel="merchant-panel" aria-label="Collapse merchant analysis">⌃</button><button class="icon-btn fullscreen" data-panel="merchant-panel" aria-label="Fullscreen merchant analysis">⛶</button></div></div>
+      <div class="panel-body">
+        <div class="toolbar"><div><strong>Merchant capacity</strong><span id="merchant-count" class="muted"></span></div><div class="toolbar-actions"><input id="merchant-search" placeholder="Search merchant or ID" aria-label="Search merchants"><button id="edit-rules" class="btn">⚙ Edit rules</button><button id="history" class="btn">◷ History log <span id="history-count"></span></button></div></div>
+        <div class="merchant-summary" id="merchant-summary"></div>
+        <div class="table-scroll"><table class="data-table" id="merchant-table"></table></div>
+        <div class="table-footer"><span id="selection-count">No merchants selected</span><div><button id="clear-selection" class="btn small">Clear selection</button><button id="intervene" class="btn primary" disabled>Intervene <span>↗</span></button></div></div>
+      </div>
+    </section>
+    <section class="panel" id="strategy-panel">
+      <div class="section-heading"><h2><span class="section-icon">◈</span> Strategy Details</h2><div><button class="icon-btn collapse" data-panel="strategy-panel" aria-label="Collapse strategy details">⌃</button><button class="icon-btn fullscreen" data-panel="strategy-panel" aria-label="Fullscreen strategy details">⛶</button></div></div>
+      <div class="panel-body strategy-body"><div id="strategy-cards" class="strategy-cards"></div><div id="strategy-chart"></div><div class="toolbar"><strong>Intervention overview <span class="muted">· simulated strategies</span></strong><div class="toolbar-actions"><div class="segmented"><button class="active" data-strategy="area">Area</button><button data-strategy="merchant">Merchant</button></div><button id="export-strategies" class="icon-btn" aria-label="Export strategy details">⇩</button></div></div><div class="table-scroll"><table id="strategy-table" class="data-table"></table></div></div>
+    </section>
+    <footer class="page-footer"><span>Delivery Operations · Product demo</span><span>All names, metrics and actions are simulated. No live operations are connected.</span></footer>
+  </main>
+  <dialog id="modal"><div id="modal-content"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
